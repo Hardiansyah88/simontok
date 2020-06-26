@@ -36,11 +36,11 @@ $headers [] = "Cookie: _ga=GA1.2.513239636.1592924479; _gid=GA1.2.728015094.1593
 $getotp = request($url, $headers);
 $json = json_decode($getotp, true);
 $a = $json['message'];
-if (strpos($a, 'memiliki') !== false) {
-    echo "$nomor --> Tidak berhasil, pesanan ini sudah terslash\n";
-} else {
-	echo "$nomor --> Berhasil slash\n";
-}
+echo "$nomor --> $a";
+echo "\n";
+if ($json['code'] == 0) {
+	echo "$nomor --> berhasil slash ";
+} 
 }
 
 function getno($id) {
